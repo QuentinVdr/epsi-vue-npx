@@ -5,28 +5,31 @@
       <div class="pokemon-info">
         <h2>{{ pokemon.name }}</h2>
         <p>Type: {{ pokemon.type }}</p>
-        <p>Height: {{ pokemon.height }}</p>
-        <p>Weight: {{ pokemon.weight }}</p>
       </div>
     </div>
   </template>
-
-  <script>
-  export default {
-    props: {
-      pokemon: {
-        type: Object,
-        required: true,
-      },
-    },
-  };
+  
+  <script setup>
+  import { defineProps } from 'vue';
+  
+  const props = defineProps(['pokemon']);
   </script>
-
+  
   <style scoped>
-  /* Ajoutez ici des styles CSS selon vos besoins */
   .pokemon-card {
     border: 1px solid #ddd;
     padding: 10px;
     margin: 10px;
     text-align: center;
   }
+  
+  .pokemon-image {
+    max-width: 100%;
+    max-height: 150px;
+  }
+  
+  .pokemon-info {
+    margin-top: 10px;
+  }
+  </style>
+  
