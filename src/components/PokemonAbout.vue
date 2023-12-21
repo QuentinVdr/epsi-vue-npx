@@ -1,19 +1,21 @@
 <template>
-  <div class="pokemonDetail" v-if="isLoading">
-    <p>loading ...</p>
-  </div>
-  <div class="pokemonDetail" v-if="handleError">
-    <p>{{ handleError.message }}</p>
-  </div>
-  <div class="pokemonDetail" v-if="pokemon">
-    <h1>{{ pokemon.name }}</h1>
-    <div v-if="pokemon.sprites">
-      <img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
+  <div>
+    <div v-if="isLoading" class="pokemonDetail">
+      <p>Loading...</p>
     </div>
-    <p v-for="typeInfo in pokemon.types">
-      {{ typeInfo.type.name }}
-    </p>
-    <p v-for="statInfo in pokemon.stats">{{ statInfo.stat.name }}: {{ statInfo.base_stat }}</p>
+    <div v-if="handleError" class="pokemonDetail">
+      <p>Error: {{ handleError.message }}</p>
+    </div>
+    <div v-if="pokemon" class="pokemonDetail">
+      <h1>{{ pokemon.name }}</h1>
+      <div v-if="pokemon.sprites">
+        <img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
+      </div>
+      <p v-for="typeInfo in pokemon.types" :key="typeInfo.slot">
+        {{ typeInfo.type.name }}
+      </p>
+      <PokemonStatChart :pokemonStats="pokemon.stats" />
+    </div>
   </div>
 </template>
 
@@ -38,17 +40,14 @@ export default {
   },
   methods: {
     async getPokemon() {
-      axios
-        .get(apiURL + this.id) // Use this.id instead of id
-        .then((result) => {
-          console.log(result.data)
-          this.pokemon = result.data
-          this.isLoading = false
-        })
-        .catch((error) => {
-          this.handleError = error // Assign error to handleError
-          this.isLoading = false
-        })
+      try {
+        const result = await axios.get(apiURL + this.id)
+        this.pokemon = result.data
+      } catch (error) {
+        this.handleError = error
+      } finally {
+        this.isLoading = false
+      }
     }
   },
   beforeMount() {
