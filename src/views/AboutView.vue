@@ -1,6 +1,10 @@
+<script setup>
+import PokemonAbout from '../components/PokemonAbout.vue'
+</script>
+
 <template>
-  <div class="about">
-    <h1>Pokemon detail</h1>
+  <div class="detail">
+    <PokemonAbout :id="this.$route.params.id" />
   </div>
 </template>
 
