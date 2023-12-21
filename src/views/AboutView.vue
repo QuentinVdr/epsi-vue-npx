@@ -4,7 +4,7 @@ import PokemonAbout from '../components/PokemonAbout.vue'
 
 <template>
   <div class="detail">
-    <PokemonAbout id="{{this.$route.params.id}}" />
+    <PokemonAbout :id="this.$route.params.id" />
   </div>
 </template>
 
