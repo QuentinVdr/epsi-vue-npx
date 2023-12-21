@@ -1,35 +1,48 @@
 # epsi-vue-npx
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Vue project for framework js module
 
 ## Project Setup
 
+clone project
+
 ```sh
-npm install
+git clonehttps://github.com/QuentinVdr/epsi-vue-npx
+pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+install dependencies
+
+```sh
+npm install
+yarn install
+pnpm install
+```
+
+run locally
 
 ```sh
 npm run dev
+yarn dev
+pnpm dev
 ```
 
-### Compile and Minify for Production
+## Project idea
 
-```sh
-npm run build
-```
+Pokedex using [pokeapi](https://pokeapi.co/)
 
-### Lint with [ESLint](https://eslint.org/)
+todo lost :
 
-```sh
-npm run lint
-```
+- [ ] Home page
+  - [ ] display all pokemon using the coponent resume
+- [ ] component to display a pokemon resume
+  - [ ] display image
+  - [ ] display name
+  - [ ] display type
+  - [ ] button to get pokemon detail
+- [ ] Detail page to display pokemon display
+  - [ ] display image
+  - [ ] display name
+  - [ ] display type
+  - [ ] display stat
+- [ ] Component to display pokemon stat using [chartjs](https://www.chartjs.org/)
