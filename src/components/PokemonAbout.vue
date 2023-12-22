@@ -1,3 +1,7 @@
+<script setup>
+import PokemonStatChart from './PokemonStatChart.vue'
+</script>
+
 <template>
   <div>
     <div v-if="isLoading" class="pokemonDetail">
@@ -14,7 +18,9 @@
       <p v-for="typeInfo in pokemon.types" :key="typeInfo.slot">
         {{ typeInfo.type.name }}
       </p>
-      <PokemonStatChart :pokemonStats="pokemon.stats" />
+      <div v-if="pokemon.stats">
+        <PokemonStatChart :pokemonStats="pokemon.stats" />
+      </div>
     </div>
   </div>
 </template>
@@ -42,6 +48,7 @@ export default {
     async getPokemon() {
       try {
         const result = await axios.get(apiURL + this.id)
+        console.log('result.data:', result.data)
         this.pokemon = result.data
       } catch (error) {
         this.handleError = error

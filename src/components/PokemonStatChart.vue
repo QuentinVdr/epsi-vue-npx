@@ -27,8 +27,14 @@ export default {
   data() {
     return {
       chartData: {
-        labels: pokemonStats.map((stat) => stat.stat.name),
-        datasets: pokemonStats.map((stat) => stat.base_stat)
+        labels: this.pokemonStats.map((stat) => stat.stat.name),
+        datasets: [
+          {
+            label: 'Pokemon Stats',
+            backgroundColor: '#f61c20',
+            data: this.pokemonStats.map((stat) => stat.base_stat)
+          }
+        ]
       },
       chartOptions: {
         responsive: true
