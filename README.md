@@ -28,9 +28,9 @@ todo lost :
   - [ ] display name
   - [ ] display type
   - [ ] button to get pokemon detail
-- [ ] Detail page to display pokemon display (lucas)
-  - [ ] display image
-  - [ ] display name
-  - [ ] display type
-  - [ ] display stat
-- [ ] Component to display pokemon stat using [chartjs](https://www.chartjs.org/) (quentin)
+- [x] Detail page to display pokemon display (lucas) (at /about/:pokemonid)
+  - [x] display image
+  - [x] display name
+  - [x] display type
+  - [x] display stat
+- [x] Component to display pokemon stat using [chartjs](https://www.chartjs.org/) (quentin)
